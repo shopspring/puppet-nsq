@@ -1,0 +1,24 @@
+{
+  "name": "puppet-nsq",
+  "version": "0.1.0",
+  "author": "Spring NYC, Inc.",
+  "summary": "module for installing NSQ",
+  "license": "MIT",
+  "source": "https://github.com/shopspring/puppet-nsq",
+  "project_page": "https://github.com/shopspring/puppet-nsq",
+  "issues_url": "https://github.com/shopspring/puppet-nsq/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    }
+  ]
+}

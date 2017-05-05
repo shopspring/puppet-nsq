@@ -1,0 +1,11 @@
+[Unit]
+Description=nsqadmin
+After=network.target
+
+[Service]
+ExecStart=<%= scope.lookupvar('nsq::bin_dir')%>/bin/nsqadmin -config <%= scope.lookupvar('nsq::conf_dir') %>/nsqadmin.conf
+Type=simple
+PIDFile=/var/run/nsqadmin.pid
+
+[Install]
+WantedBy=default.target

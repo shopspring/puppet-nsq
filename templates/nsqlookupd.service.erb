@@ -1,0 +1,11 @@
+[Unit]
+Description=nsqlookupd
+After=network.target
+
+[Service]
+ExecStart=<%= scope.lookupvar('nsq::bin_dir')%>/bin/nsqlookupd -config <%= scope.lookupvar('nsq::conf_dir') %>/nsqlookupd.conf
+Type=simple
+PIDFile=/var/run/nsqlookupd.pid
+
+[Install]
+WantedBy=default.target

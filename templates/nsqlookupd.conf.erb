@@ -1,0 +1,18 @@
+## enable verbose logging
+verbose = <%= scope.lookupvar('nsq::nsqlookupd::verbose_logging') %>
+
+## <addr>:<port> to listen on for TCP clients
+tcp_address = "<%= scope.lookupvar('nsq::nsqlookupd::tcp_address') %>"
+
+## <addr>:<port> to listen on for HTTP clients
+http_address = "<%= scope.lookupvar('nsq::nsqlookupd::http_address') %>"
+
+## address that will be registered with lookupd (defaults to the OS hostname)
+# broadcast_address = ""
+
+
+## duration of time a producer will remain in the active list since its last ping
+inactive_producer_timeout = "300s"
+
+## duration of time a producer will remain tombstoned if registration remains
+tombstone_lifetime = "45s"

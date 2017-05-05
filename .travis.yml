@@ -1,0 +1,13 @@
+language: ruby
+bundler_args: "--without system_tests"
+script: bundle install && bundle exec rake validate
+cache: bundler
+sudo: required
+rvm:
+- 2.1.0
+env:
+- PUPPET_VERSION="~> 4.6.0"
+- PUPPET_VERSION="~> 4.7.0"
+- PUPPET_VERSION="~> 4.8.0"
+- PUPPET_VERSION="~> 4.9.0"
+- PUPPET_VERSION="~> 4.10.0"
