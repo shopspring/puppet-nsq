@@ -11,9 +11,10 @@
 #   e.g. "Specify one or more upstream ntp servers as an array."
 #
 class nsq::nsqadmin(
-  Boolean $manage_service = $::nsq::params::manage_service,
-  Boolean $ensure_running = $::nsq::params::ensure_running,
-  String $http_address    = '0.0.0.0:4171',
+  Boolean $manage_service     = $::nsq::params::manage_service,
+  Boolean $ensure_running     = $::nsq::params::ensure_running,
+  String $http_address        = '0.0.0.0:4171',
+  Array $nsqlookupd_addresses = [ '127.0.0.1:4161' ],
 ){
   include nsq::nsqadmin::config
 
