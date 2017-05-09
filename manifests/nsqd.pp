@@ -11,16 +11,18 @@
 #   e.g. "Specify one or more upstream ntp servers as an array."
 #
 class nsq::nsqd(
-  Boolean $manage_service  = $::nsq::params::manage_service,
-  Boolean $ensure_running  = $::nsq::params::ensure_running,
-  String $tcp_address      = '0.0.0.0:4160',
-  String $http_address     = '0.0.0.0:4161',
-  Boolean $verbose_logging = false,
+  Boolean $manage_service     = $::nsq::params::manage_service,
+  Boolean $ensure_running     = $::nsq::params::ensure_running,
+  Boolean $verbose_logging    = false,
+  String $tcp_address         = '0.0.0.0:4160',
+  String $http_address        = '0.0.0.0:4161',
+  String $data_dir            = $::nsq::params::data_dir,
+  Array $nsqlookupd_addresses = [ '127.0.0.1:4160' ],
 ){
   include nsq::nsqd::config
 
   if $manage_service {
-    # put upstart file in place
+    # put systemd file in place
     file { '/etc/systemd/system/nsqd.service':
       content => template('nsq/nsqd.service.erb'),
       notify  => Exec['systemd-reload'],

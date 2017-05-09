@@ -18,7 +18,7 @@ http_address = "<%= scope.lookupvar('nsq::nsqd::http_address') %>"
 
 ## cluster of nsqlookupd TCP addresses
 nsqlookupd_tcp_addresses = [
-    "127.0.0.1:4160"
+    <%= scope.lookupvar('nsq::nsqd::nsqlookupd_addresses').join(',') %>
 ]
 
 ## duration to wait before HTTP client connection timeout
@@ -28,7 +28,7 @@ http_client_connect_timeout = "2s"
 http_client_request_timeout = "5s"
 
 ## path to store disk-backed messages
-# data_path = "/var/lib/nsq"
+data_path = "<%= scope.lookupvar('nsq::nsqd::data_dir') %>"
 
 ## number of messages to keep in memory (per topic/channel)
 mem_queue_size = 10000
