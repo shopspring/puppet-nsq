@@ -3,7 +3,7 @@ Description=nsqlookupd
 After=network.target
 
 [Service]
-ExecStart=<%= scope.lookupvar('nsq::bin_dir')%>/bin/nsqlookupd -config <%= scope.lookupvar('nsq::conf_dir') %>/nsqlookupd.conf
+ExecStart=/bin/sh -c 'exec <%= scope.lookupvar('nsq::bin_dir')%>/bin/nsqlookupd -config <%= scope.lookupvar('nsq::conf_dir') %>/nsqlookupd.conf >> <%= scope.lookupvar('nsq::log_dir') %>/nsqlookupd.log 2>&1'
 Type=simple
 PIDFile=/var/run/nsqlookupd.pid
 
