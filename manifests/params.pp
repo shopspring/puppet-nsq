@@ -19,4 +19,6 @@ class nsq::params {
   $manage_service = false
 
   $ensure_running = true
+
+  $statsd_address = '127.0.0.1:8125'
 }

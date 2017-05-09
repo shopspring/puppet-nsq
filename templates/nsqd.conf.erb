@@ -73,7 +73,7 @@ max_output_buffer_timeout = "1s"
 
 
 ## UDP <addr>:<port> of a statsd daemon for pushing stats
-# statsd_address = "127.0.0.1:8125"
+statsd_address = "<%= scope.lookupvar('nsq::nsqd::statsd_address') %>"
 
 ## prefix used for keys sent to statsd (%s for host replacement)
 statsd_prefix = "nsq.%s"

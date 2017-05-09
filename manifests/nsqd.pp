@@ -17,6 +17,7 @@ class nsq::nsqd(
   String $tcp_address         = '0.0.0.0:4160',
   String $http_address        = '0.0.0.0:4161',
   String $data_dir            = $::nsq::params::data_dir,
+  String $statsd_address      = $::nsq::params::statsd_address,
   Array $nsqlookupd_addresses = [ '127.0.0.1:4160' ],
 ){
   include nsq::nsqd::config
