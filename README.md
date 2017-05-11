@@ -3,7 +3,6 @@
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
 3. [Setup - The basics of getting started with nsq](#setup)
-    * [What nsq affects](#what-nsq-affects)
     * [Setup requirements](#setup-requirements)
     * [Beginning with nsq](#beginning-with-nsq)
 4. [Usage - Configuration options and additional functionality](#usage)
@@ -21,15 +20,11 @@ The NSQ module installs, configures and optionally sets up a service for running
 
 ## Setup
 
-### What nsq affects
 
-* A list of files, packages, services, or operations that the module will alter, impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form. 
+### Setup Requirements
 
-### Setup Requirements **OPTIONAL**
+* wget module - [https://forge.puppet.com/maestrodev/wget]
 
-If your module requires anything extra before setting up (pluginsync enabled, etc.), mention it here. 
 
 ### Beginning with nsq
 ```puppet
@@ -41,7 +36,7 @@ include nsq::nsqd
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing the fancy stuff with your module here. 
+Put the classes, types, and resources for customizing, configuring, and doing the fancy stuff with your module here.
 
 ## Reference
 
