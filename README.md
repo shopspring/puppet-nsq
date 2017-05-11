@@ -14,6 +14,8 @@
 
 Installs and configures NSQ [http://nsq.io]
 
+[![Build Status](https://travis-ci.org/shopspring/puppet-nsq.svg?branch=master)](https://travis-ci.org/shopspring/puppet-nsq)
+
 ## Module Description
 
 The NSQ module installs, configures and optionally sets up a service for running NSQ on Ubuntu 16.04.
