@@ -6,10 +6,10 @@
 # Parameters
 # ----------
 #
-# * `manage_service`
+# * `service_manage`
 #   Installs a systemd unit file and registers it as a service
 #
-# * `ensure_running`
+# * `service_ensure`
 #   Ensure nsqadmin service is running
 #
 # * `http_address`
@@ -19,19 +19,19 @@
 #   Array of nsqlookupd addresses to connect to
 #
 class nsq::nsqadmin(
-  Boolean $manage_service     = $::nsq::params::manage_service,
-  Boolean $ensure_running     = $::nsq::params::ensure_running,
+  Boolean $service_manage     = $::nsq::params::service_manage,
+  Boolean $service_ensure     = $::nsq::params::service_ensure,
   String $http_address        = '0.0.0.0:4171',
   Array $nsqlookupd_addresses = [ '127.0.0.1:4161' ],
 ){
   include nsq::nsqadmin::config
 
-  if $ensure_running {
-    assert_type(Boolean, $manage_service)
-    if ! $manage_service { fail ('$manage_service must be True if using $ensure_running') }
+  if $service_ensure {
+    assert_type(Boolean, $service_manage)
+    if ! $service_manage { fail ('$service_manage must be True if using $service_ensure') }
   }
 
-  if $manage_service {
+  if $service_manage {
     # put upstart file in place
     file { '/etc/systemd/system/nsqadmin.service':
       content => template('nsq/nsqadmin.service.erb'),
@@ -39,7 +39,7 @@ class nsq::nsqadmin(
     }
 
     service { 'nsqadmin':
-      ensure => $ensure_running,
+      ensure => $service_ensure,
       enable => true,
     }
   }

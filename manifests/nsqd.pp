@@ -6,10 +6,10 @@
 # Parameters
 # ----------
 #
-# * `manage_service`
+# * `service_manage`
 #   Installs a systemd unit file and registers it as a service
 #
-# * `ensure_running`
+# * `service_ensure`
 #   Ensure nsqd service is running
 #
 # * `verbose_logging`
@@ -33,8 +33,8 @@
 #   Array of nsqlookupd addresses to connect to
 #
 class nsq::nsqd(
-  Boolean $manage_service     = $::nsq::params::manage_service,
-  Boolean $ensure_running     = $::nsq::params::ensure_running,
+  Boolean $service_manage     = $::nsq::params::service_manage,
+  Boolean $service_ensure     = $::nsq::params::service_ensure,
   Boolean $verbose_logging    = false,
   String $tcp_address         = '0.0.0.0:4150',
   String $http_address        = '0.0.0.0:4151',
@@ -44,21 +44,22 @@ class nsq::nsqd(
 ){
   include nsq::nsqd::config
 
-  if $ensure_running {
-    assert_type(Boolean, $manage_service)
-    if ! $manage_service { fail ('$manage_service must be True if using $ensure_running') }
+  if $service_ensure {
+    assert_type(Boolean, $service_manage)
+    if ! $service_manage { fail ('$service_manage must be True if using $service_ensure') }
   }
 
-  if $manage_service {
+  if $service_manage {
     # put systemd file in place
+    # TODO: should probably separate out systemd placement into its own option
     file { '/etc/systemd/system/nsqd.service':
       content => template('nsq/nsqd.service.erb'),
       notify  => Exec['systemd-reload'],
     }
 
     service { 'nsqd':
+      ensure => $service_ensure,
       enable => true,
-      ensure => $ensure_running,
     }
   }
 }

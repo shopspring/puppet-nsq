@@ -16,9 +16,9 @@ class nsq::params {
 
   $data_dir = '/var/lib/nsq'
 
-  $manage_service = false
+  $service_manage = false
 
-  $ensure_running = true
+  $service_ensure = true
 
   $statsd_address = '127.0.0.1:8125'
 }
