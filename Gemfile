@@ -6,6 +6,9 @@ group :test do
   gem "puppetlabs_spec_helper", :require => false
   gem "facter"
   gem "metadata-json-lint"
+  gem "rspec-puppet-facts"
+  gem "simplecov"
+  gem "simplecov-console"
 end
 
 group :development do
