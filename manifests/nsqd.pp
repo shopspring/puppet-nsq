@@ -1,14 +1,36 @@
-# Class: nsq::nslookupd
+# Class: nsq::nsqd
 # ===========================
 #
-# Full description of class nsq here.
+# Responsible for configuration and management of nsqd
 #
 # Parameters
 # ----------
 #
-# * `sample parameter`
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
+# * `manage_service`
+#   Installs a systemd unit file and registers it as a service
+#
+# * `ensure_running`
+#   Ensure nsqd service is running
+#
+# * `verbose_logging`
+#   Toggle verbose logging
+#
+# * `tcp_address`
+#   The IP and port nsqd will bind to for TCP connections
+#   e.g. 0.0.0.0:4150
+#
+# * `http_address`
+#   The IP and port nsqd will bind to for TCP connections
+#   e.g. 0.0.0.0:4151
+#
+# * `data_dir`
+#   Overflow will be stored on disk in this directory
+#
+# * `statsd_address`
+#   location of statsd endpoint to write metrics to
+#
+# * `nsqlookupd_addresses`
+#   Array of nsqlookupd addresses to connect to
 #
 class nsq::nsqd(
   Boolean $manage_service     = $::nsq::params::manage_service,
@@ -21,6 +43,11 @@ class nsq::nsqd(
   Array $nsqlookupd_addresses = [ '127.0.0.1:4160' ],
 ){
   include nsq::nsqd::config
+
+  if $ensure_running {
+    assert_type(Boolean, $manage_service)
+    if ! $manage_service { fail ('$manage_service must be True if using $ensure_running') }
+  }
 
   if $manage_service {
     # put systemd file in place
