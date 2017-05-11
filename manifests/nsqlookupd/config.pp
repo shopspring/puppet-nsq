@@ -1,7 +1,7 @@
 # Class: nsq::nsqlookupd::config
 # ===========================
 #
-# Configuration for nsqd
+# Configuration for nsqlookupd
 #
 class nsq::nsqlookupd::config {
 
