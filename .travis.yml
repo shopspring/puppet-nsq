@@ -1,6 +1,6 @@
 language: ruby
 bundler_args: "--without system_tests"
-script: bundle install && bundle exec rake validate
+script: bundle install && bundle exec rake validate && bundle exec rake lint
 cache: bundler
 sudo: required
 rvm:
