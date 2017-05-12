@@ -35,5 +35,6 @@ class nsq (
   String $bin_dir = $::nsq::params::bin_dir,
 ) inherits ::nsq::params {
 
+  class { '::nsq::service': }
   class { '::nsq::install': }
 }
