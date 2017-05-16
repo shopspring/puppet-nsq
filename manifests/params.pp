@@ -18,7 +18,7 @@ class nsq::params {
 
   $service_manage = true
 
-  $service_ensure = false
+  $service_ensure = undef
 
   $statsd_address = '127.0.0.1:8125'
 }

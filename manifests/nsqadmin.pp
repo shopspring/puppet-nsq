@@ -19,10 +19,10 @@
 #   Array of nsqlookupd addresses to connect to
 #
 class nsq::nsqadmin(
-  Boolean $service_manage     = $::nsq::params::service_manage,
-  Boolean $service_ensure     = $::nsq::params::service_ensure,
-  String $http_address        = '0.0.0.0:4171',
-  Array $nsqlookupd_addresses = [ '127.0.0.1:4161' ],
+  Boolean $service_manage                 = $::nsq::params::service_manage,
+  Variant[Boolean, Undef] $service_ensure = $::nsq::params::service_ensure,
+  String $http_address                    = '0.0.0.0:4171',
+  Array $nsqlookupd_addresses             = [ '127.0.0.1:4161' ],
 ){
   include nsq::nsqadmin::config
 

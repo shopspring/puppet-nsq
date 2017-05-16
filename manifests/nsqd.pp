@@ -33,14 +33,14 @@
 #   Array of nsqlookupd addresses to connect to
 #
 class nsq::nsqd(
-  Boolean $service_manage     = $::nsq::params::service_manage,
-  Boolean $service_ensure     = $::nsq::params::service_ensure,
-  Boolean $verbose_logging    = false,
-  String $tcp_address         = '0.0.0.0:4150',
-  String $http_address        = '0.0.0.0:4151',
-  String $data_dir            = $::nsq::params::data_dir,
-  String $statsd_address      = $::nsq::params::statsd_address,
-  Array $nsqlookupd_addresses = [ '127.0.0.1:4160' ],
+  Boolean $service_manage                 = $::nsq::params::service_manage,
+  Variant[Boolean, Undef] $service_ensure = $::nsq::params::service_ensure,
+  Boolean $verbose_logging                = false,
+  String $tcp_address                     = '0.0.0.0:4150',
+  String $http_address                    = '0.0.0.0:4151',
+  String $data_dir                        = $::nsq::params::data_dir,
+  String $statsd_address                  = $::nsq::params::statsd_address,
+  Array $nsqlookupd_addresses             = [ '127.0.0.1:4160' ],
 ){
   include nsq::nsqd::config
 

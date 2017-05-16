@@ -25,11 +25,11 @@
 #
 #
 class nsq::nsqlookupd(
-  Boolean $service_manage  = $::nsq::params::service_manage,
-  Boolean $service_ensure  = $::nsq::params::service_ensure,
-  Boolean $verbose_logging = false,
-  String $tcp_address      = '0.0.0.0:4160',
-  String $http_address     = '0.0.0.0:4161',
+  Boolean $service_manage                 = $::nsq::params::service_manage,
+  Variant[Boolean, Undef] $service_ensure = $::nsq::params::service_ensure,
+  Boolean $verbose_logging                = false,
+  String $tcp_address                     = '0.0.0.0:4160',
+  String $http_address                    = '0.0.0.0:4161',
 ){
 # configure and setup service
   include nsq::nsqlookupd::config
