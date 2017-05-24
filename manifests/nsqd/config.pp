@@ -5,7 +5,7 @@
 #
 class nsq::nsqd::config {
 
-  $notify_service = $nsq::nsqd::manage_service ? {
+  $notify_service = $nsq::nsqd::service_manage ? {
     true    => Service['nsqd'],
     false   => undef,
     default => undef,
