@@ -77,7 +77,7 @@ max_output_buffer_timeout = "1s"
 statsd_address = "<%= scope.lookupvar('nsq::nsqd::statsd_address') %>"
 
 ## prefix used for keys sent to statsd (%s for host replacement)
-statsd_prefix = "nsq.%s"
+statsd_prefix = "<%= scope.lookupvar('nsq::nsqd::statsd_prefix') %>"
 
 ## duration between pushing to statsd (time.Duration)
 statsd_interval = "60s"

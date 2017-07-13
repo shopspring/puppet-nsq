@@ -29,6 +29,9 @@
 # * `statsd_address`
 #   location of statsd endpoint to write metrics to
 #
+# * `statsd_prefix`
+#   Prefix for the keys sent to statsd (%s for host replacement)
+#
 # * `nsqlookupd_addresses`
 #   Array of nsqlookupd addresses to connect to
 #
@@ -40,6 +43,7 @@ class nsq::nsqd(
   String $http_address                    = '0.0.0.0:4151',
   String $data_dir                        = $::nsq::params::data_dir,
   String $statsd_address                  = $::nsq::params::statsd_address,
+  String $statsd_prefix                   = $::nsq::params::statsd_prefix,
   Array $nsqlookupd_addresses             = [ '127.0.0.1:4160' ],
 ){
   include nsq::nsqd::config
