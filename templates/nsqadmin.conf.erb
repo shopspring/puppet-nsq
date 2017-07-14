@@ -8,7 +8,7 @@ graphite_url = ""
 proxy_graphite = false
 
 ## prefix used for keys sent to statsd (%s for host replacement, must match nsqd)
-statsd_prefix = "nsq.%s"
+statsd_prefix = "<%= scope.lookupvar('nsq::nsqd::statsd_prefix') %>"
 
 ## format of statsd counter stats
 statsd_counter_format = "stats.counters.%s.count"

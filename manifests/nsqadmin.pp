@@ -15,6 +15,9 @@
 # * `http_address`
 #   The IP and port nsqadmin will bind to.  e.g. 0.0.0.0:4171
 #
+# * `statsd_prefix`
+#   Prefix for the keys sent to statsd (%s for host replacement)
+#
 # * `nsqlookupd_addresses`
 #   Array of nsqlookupd addresses to connect to
 #
@@ -23,6 +26,7 @@ class nsq::nsqadmin(
   Variant[Boolean, Undef] $service_ensure = $::nsq::params::service_ensure,
   String $http_address                    = '0.0.0.0:4171',
   Array $nsqlookupd_addresses             = [ '127.0.0.1:4161' ],
+  String $statsd_prefix                   = $::nsq::params::statsd_prefix,
 ){
   include nsq::nsqadmin::config
 

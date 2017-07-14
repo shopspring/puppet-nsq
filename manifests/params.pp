@@ -21,4 +21,6 @@ class nsq::params {
   $service_ensure = undef
 
   $statsd_address = '127.0.0.1:8125'
+
+  $statsd_prefix = 'nsq.%s'
 }
