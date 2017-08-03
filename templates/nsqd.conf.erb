@@ -45,7 +45,7 @@ sync_timeout = "2s"
 
 
 ## duration to wait before auto-requeing a message
-msg_timeout = "60s"
+msg_timeout = "<%= scope.lookupvar('nsq::nsqd::msg_timeout') %>"
 
 ## maximum duration before a message will timeout
 max_msg_timeout = "15m"

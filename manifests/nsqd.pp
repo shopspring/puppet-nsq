@@ -45,6 +45,7 @@ class nsq::nsqd(
   String $statsd_address                  = $::nsq::params::statsd_address,
   String $statsd_prefix                   = $::nsq::params::statsd_prefix,
   Array $nsqlookupd_addresses             = [ '127.0.0.1:4160' ],
+  String $msg_timeout                     = $::nsq::params::msg_timeout,
 ){
   include nsq::nsqd::config
 
