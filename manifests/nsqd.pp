@@ -15,6 +15,9 @@
 # * `verbose_logging`
 #   Toggle verbose logging
 #
+# * `log_level`
+#   Set logging level: debug, info, warn, error or fatal
+#
 # * `tcp_address`
 #   The IP and port nsqd will bind to for TCP connections
 #   e.g. 0.0.0.0:4150
@@ -39,6 +42,7 @@ class nsq::nsqd(
   Boolean $service_manage                 = $::nsq::params::service_manage,
   Variant[Boolean, Undef] $service_ensure = $::nsq::params::service_ensure,
   Boolean $verbose_logging                = false,
+  String $log_level                       = $::nsq::params::log_level,
   String $tcp_address                     = '0.0.0.0:4150',
   String $http_address                    = '0.0.0.0:4151',
   String $data_dir                        = $::nsq::params::data_dir,

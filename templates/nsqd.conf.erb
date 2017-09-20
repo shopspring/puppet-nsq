@@ -124,3 +124,6 @@ max_deflate_level = 6
 
 ## enable snappy feature negotiation (client compression)
 snappy = true
+
+### log verbosity level: debug, info, warn, error, or fatal
+log-level = "<%= scope.lookupvar('nsq::nsqd::log-level') %>"

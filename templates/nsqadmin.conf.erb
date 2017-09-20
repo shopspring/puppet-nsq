@@ -33,3 +33,6 @@ nsqlookupd_http_addresses = [ <% scope.lookupvar('nsq::nsqadmin::nsqlookupd_addr
 #nsqd_http_addresses = [
 #    "127.0.0.1:4151"
 #]
+#
+### log verbosity level: debug, info, warn, error, or fatal
+log-level = "<%= scope.lookupvar('nsq::nsqadmin::log-level') %>"

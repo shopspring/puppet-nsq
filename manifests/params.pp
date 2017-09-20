@@ -25,4 +25,6 @@ class nsq::params {
   $statsd_prefix = 'nsq.%s'
 
   $msg_timeout = '60s'
+
+  $log_level = 'info'
 }

@@ -16,3 +16,6 @@ inactive_producer_timeout = "300s"
 
 ## duration of time a producer will remain tombstoned if registration remains
 tombstone_lifetime = "45s"
+
+## log verbosity level: debug, info, warn, error, or fatal
+log-level = "<%= scope.lookupvar('nsq::nsqlookupd::log-level') %>"
