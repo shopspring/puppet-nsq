@@ -1,6 +1,6 @@
 {
   "name": "puppet-nsq",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "author": "Spring NYC, Inc.",
   "summary": "module for installing NSQ",
   "license": "MIT",
