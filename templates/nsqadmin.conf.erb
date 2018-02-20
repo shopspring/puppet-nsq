@@ -8,7 +8,7 @@ graphite_url = ""
 proxy_graphite = false
 
 ## prefix used for keys sent to statsd (%s for host replacement, must match nsqd)
-statsd_prefix = "<%= scope.lookupvar('nsq::nsqd::statsd_prefix') %>"
+statsd_prefix = "<%= scope.lookupvar('nsq::nsqadmin::statsd_prefix') %>"
 
 ## format of statsd counter stats
 statsd_counter_format = "stats.counters.%s.count"
@@ -22,10 +22,10 @@ statsd_interval = "60s"
 ## HTTP endpoint (fully qualified) to which POST notifications of admin actions will be sent
 notification_http_endpoint = ""
 
-
 ## nsqlookupd HTTP addresses
-nsqlookupd_http_addresses = [ <% scope.lookupvar('nsq::nsqadmin::nsqlookupd_addresses').each do |val| %>
-    "<%= val %>",
+nsqlookupd_http_addresses = [
+<% scope.lookupvar('nsq::nsqadmin::nsqlookupd_addresses').each do |val| -%>
+    "<%= val -%>",
 <% end -%>
 ]
 

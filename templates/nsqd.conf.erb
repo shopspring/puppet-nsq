@@ -17,9 +17,10 @@ http_address = "<%= scope.lookupvar('nsq::nsqd::http_address') %>"
 # broadcast_address = ""
 
 ## cluster of nsqlookupd TCP addresses
-nsqlookupd_tcp_addresses = [ <% scope.lookupvar('nsq::nsqd::nsqlookupd_addresses').each do |val| %>
-    "<%= val %>",
-    <% end -%>
+nsqlookupd_tcp_addresses = [
+<% scope.lookupvar('nsq::nsqd::nsqlookupd_addresses').each do |val| -%>
+    "<%= val -%>",
+<% end -%>
 ]
 
 ## duration to wait before HTTP client connection timeout
