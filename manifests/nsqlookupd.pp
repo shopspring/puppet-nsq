@@ -29,7 +29,8 @@
 #
 class nsq::nsqlookupd(
   Boolean $service_manage                 = $::nsq::params::service_manage,
-  Variant[Boolean, Undef] $service_ensure = $::nsq::params::service_ensure,
+  Variant[Boolean, Enum[true, false, 'running', 'stopped'], Undef]
+  $service_ensure                         = $::nsq::params::service_ensure,
   Boolean $verbose_logging                = false,
   String $log_level                       = $::nsq::params::log_level,
   String $tcp_address                     = '0.0.0.0:4160',
