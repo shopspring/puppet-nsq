@@ -26,7 +26,7 @@
 #
 class nsq::nsqadmin(
   Boolean $service_manage     = $::nsq::params::service_manage,
-  Variant[Boolean, Enum[true, false, 'running', 'stopped'], Undef]
+  Variant[Boolean, Enum['running', 'stopped'], Undef]
   $service_ensure             = $::nsq::params::service_ensure,
   String $http_address        = '0.0.0.0:4171',
   Array $nsqlookupd_addresses = [ '127.0.0.1:4161' ],
