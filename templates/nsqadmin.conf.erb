@@ -22,10 +22,10 @@ statsd_interval = "60s"
 ## HTTP endpoint (fully qualified) to which POST notifications of admin actions will be sent
 notification_http_endpoint = ""
 
-
 ## nsqlookupd HTTP addresses
-nsqlookupd_http_addresses = [ <% scope.lookupvar('nsq::nsqadmin::nsqlookupd_addresses').each do |val| %>
-    "<%= val %>",
+nsqlookupd_http_addresses = [
+<% scope.lookupvar('nsq::nsqadmin::nsqlookupd_addresses').each do |val| -%>
+    "<%= val -%>",
 <% end -%>
 ]
 
