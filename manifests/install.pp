@@ -15,6 +15,7 @@ class nsq::install {
   file { [ $::nsq::conf_dir, $::nsq::log_dir, $::nsq::data_dir ]:
     ensure  => directory,
     owner   => 'nsq',
+    recurse => true,
     require => User['nsq'],
   }
 
