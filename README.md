@@ -46,5 +46,4 @@ Here, list the classes, types, providers, facts, etc contained in your module. T
 
 ## Limitations
 
-Currently only tested on Ubuntu 16.04 and Puppet 4.x
-
+Currently only tested on Ubuntu 16.04, Centos 7, Puppet 4.x, and Puppet 5.x.
