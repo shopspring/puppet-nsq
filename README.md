@@ -18,7 +18,7 @@ Installs and configures NSQ [http://nsq.io]
 
 ## Module Description
 
-The NSQ module installs, configures and optionally sets up a service for running NSQ on Ubuntu 16.04.
+The NSQ module installs, configures and optionally sets up a service for running NSQ on Ubuntu 16.04 and Centos 7.
 
 ## Setup
 

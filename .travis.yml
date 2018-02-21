@@ -1,6 +1,7 @@
 language: ruby
 bundler_args: "--without system_tests"
-script: bundle install && bundle exec rake validate && bundle exec rake lint
+before_install: rm Gemfile.lock || true
+script: bundle rake test
 cache: bundler
 sudo: required
 rvm:
@@ -11,3 +12,4 @@ env:
 - PUPPET_VERSION="~> 4.8.0"
 - PUPPET_VERSION="~> 4.9.0"
 - PUPPET_VERSION="~> 4.10.0"
+- PUPPET_VERSION="~> 5.3.0"
