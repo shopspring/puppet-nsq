@@ -52,7 +52,7 @@ msg_timeout = "<%= scope.lookupvar('nsq::nsqd::msg_timeout') %>"
 max_msg_timeout = "<%= scope.lookupvar('nsq::nsqd::max_msg_timeout') %>"
 
 ## maximum size of a single message in bytes
-max_msg_size = 1024768
+max_msg_size = 1048576
 
 ## maximum requeuing timeout for a message
 max_req_timeout = "<%= scope.lookupvar('nsq::nsqd::max_req_timeout') %>"
