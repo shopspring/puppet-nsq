@@ -26,5 +26,9 @@ class nsq::params {
 
   $msg_timeout = '60s'
 
+  $max_msg_timeout = '15m'
+
+  $max_req_timeout = '1h'
+
   $log_level = 'info'
 }
