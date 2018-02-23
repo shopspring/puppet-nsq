@@ -29,6 +29,12 @@
       "operatingsystemrelease": [
         "16.04"
       ]
+    },
+    {
+      "operatingsystem": "Centos",
+      "operatingsystemrelease": [
+        "7"
+      ]
     }
   ]
 }

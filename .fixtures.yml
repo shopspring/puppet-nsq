@@ -1,0 +1,7 @@
+fixtures:
+  symlinks:
+    nsq: "#{source_dir}"
+  forge_modules:
+    wget:
+      repo: "maestrodev/wget"
+      ref: "1.7.3"
