@@ -24,10 +24,10 @@ nsqlookupd_tcp_addresses = [
 ]
 
 ## duration to wait before HTTP client connection timeout
-http_client_connect_timeout = "2s"
+http_client_connect_timeout = "<%= scope.lookupvar('http_client_connect_timeout') %>"
 
 ## duration to wait before HTTP client request timeout
-http_client_request_timeout = "5s"
+http_client_request_timeout = "<%= scope.lookupvar('http_client_request_timeout') %>"
 
 ## path to store disk-backed messages
 data_path = "<%= scope.lookupvar('nsq::nsqd::data_dir') %>"
