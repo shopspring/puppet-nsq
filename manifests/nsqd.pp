@@ -39,20 +39,22 @@
 #   Array of nsqlookupd addresses to connect to
 #
 class nsq::nsqd(
-  Boolean $service_manage     = $::nsq::params::service_manage,
+  Boolean $service_manage             = $::nsq::params::service_manage,
   Variant[Boolean, Enum['running', 'stopped'], Undef]
-  $service_ensure             = $::nsq::params::service_ensure,
-  Boolean $verbose_logging    = false,
-  String $log_level           = $::nsq::params::log_level,
-  String $tcp_address         = '0.0.0.0:4150',
-  String $http_address        = '0.0.0.0:4151',
-  String $data_dir            = $::nsq::params::data_dir,
-  String $statsd_address      = $::nsq::params::statsd_address,
-  String $statsd_prefix       = $::nsq::params::statsd_prefix,
-  Array $nsqlookupd_addresses = [ '127.0.0.1:4160' ],
-  String $msg_timeout         = $::nsq::params::msg_timeout,
-  String $max_msg_timeout     = $::nsq::params::max_msg_timeout,
-  String $max_req_timeout     = $::nsq::params::max_req_timeout
+  $service_ensure                     = $::nsq::params::service_ensure,
+  Boolean $verbose_logging            = false,
+  String $log_level                   = $::nsq::params::log_level,
+  String $tcp_address                 = '0.0.0.0:4150',
+  String $http_address                = '0.0.0.0:4151',
+  String $data_dir                    = $::nsq::params::data_dir,
+  String $statsd_address              = $::nsq::params::statsd_address,
+  String $statsd_prefix               = $::nsq::params::statsd_prefix,
+  Array $nsqlookupd_addresses         = [ '127.0.0.1:4160' ],
+  String $msg_timeout                 = $::nsq::params::msg_timeout,
+  String $max_msg_timeout             = $::nsq::params::max_msg_timeout,
+  String $max_req_timeout             = $::nsq::params::max_req_timeout,
+  String $http_client_connect_timeout = $::nsq::params::http_client_connect_timeout,
+  String $http_client_request_timeout = $::nsq::params::http_client_request_timeout
 ){
   include nsq::nsqd::config
 
