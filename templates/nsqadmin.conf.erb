@@ -7,6 +7,12 @@ graphite_url = ""
 ## proxy HTTP requests to graphite
 proxy_graphite = false
 
+## duration to wait before HTTP client connection timeout
+http_client_connect_timeout = "<%= scope.lookupvar('http_client_connect_timeout') %>"
+
+## duration to wait before HTTP client request timeout
+http_client_request_timeout = "<%= scope.lookupvar('http_client_request_timeout') %>"
+
 ## prefix used for keys sent to statsd (%s for host replacement, must match nsqd)
 statsd_prefix = "<%= scope.lookupvar('nsq::nsqadmin::statsd_prefix') %>"
 

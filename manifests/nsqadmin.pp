@@ -25,13 +25,15 @@
 #   Set logging level: debug, info, warn, error or fatal
 #
 class nsq::nsqadmin(
-  Boolean $service_manage     = $::nsq::params::service_manage,
+  Boolean $service_manage             = $::nsq::params::service_manage,
   Variant[Boolean, Enum['running', 'stopped'], Undef]
-  $service_ensure             = $::nsq::params::service_ensure,
-  String $http_address        = '0.0.0.0:4171',
-  Array $nsqlookupd_addresses = [ '127.0.0.1:4161' ],
-  String $statsd_prefix       = $::nsq::params::statsd_prefix,
-  String $log_level           = $::nsq::params::log_level,
+  $service_ensure                     = $::nsq::params::service_ensure,
+  String $http_address                = '0.0.0.0:4171',
+  Array $nsqlookupd_addresses         = [ '127.0.0.1:4161' ],
+  String $statsd_prefix               = $::nsq::params::statsd_prefix,
+  String $log_level                   = $::nsq::params::log_level,
+  String $http_client_connect_timeout = $::nsq::params::http_client_connect_timeout,
+  String $http_client_request_timeout = $::nsq::params::http_client_request_timeout
 ){
   include nsq::nsqadmin::config
 
